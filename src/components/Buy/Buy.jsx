@@ -45,17 +45,17 @@ const Buy = ({
 `
 
   return (
-    <Container className={`z-40 ${className}`}>
-      <div className="text-white font-bold text-4xl my-8 flex items-center justify-between p-3">
+    <Container className={`z-40`}>
+      <div className="text-white font-bold text-4xl my-8 flex flex-wrap items-center justify-between p-3">
         <h1>{movieName}</h1>
       </div>
-      <div className="flex items-start gap-8 leading-6  flex-col">
-        <div className="sm:w-2/3 lg:w-1/3">
+      <div className="flex items-start gap-8 leading-6  ">
+        <div className="w-full sm:w-auto mb-4 sm:mb-0">
           <div>
             <img src={cover} alt="cover" className="w-full rounded-normal" />
           </div>
         </div>
-        <div className="w-full space-y-8">
+        <div className="w-full sm:w-auto">
           <div className="text-white">
             <div className="text-white font-bold text-xl">
               <h1>Histoire</h1>
