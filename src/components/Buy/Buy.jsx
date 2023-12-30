@@ -1,4 +1,4 @@
-import React, {useState} from "react"
+import React, {useEffect, useState} from "react"
 import home from "../../assets/close.svg"
 import Container from "../reUsables/Container"
 import frenchFlag from "../../assets/france.svg"
@@ -23,8 +23,19 @@ const Buy = ({
   price,
   Categorie,
 }) => {
-  const {id} = useParams()
+  const [usersPosition, setUsersPosition] = useState(null)
   window.scrollTo(0, 0)
+  useEffect(() => {
+    navigator.geolocation.getCurrentPosition((Position) => {
+      if (Position.coords) {
+        setUsersPosition({
+          lat: Position.coords.latitude,
+          long: Position.coords.latitude,
+        })
+      }
+    })
+  }, [])
+  const Url = document.location
   return (
     <Container className={`z-40 ${className}`}>
       <div className="text-white font-bold text-4xl my-8 flex items-center justify-between p-3">
@@ -75,7 +86,24 @@ const Buy = ({
             <Button>
               <img src={bookMark} alt="Icon" className="w-5" />
             </Button>
-            <a href="https://wa.me/+25777850081" target="_blank">
+            <a
+              href={`https://wa.me/+25777850081?text=${encodeURIComponent(
+                `
+                 Code : ${code}\n
+                 Nom : ${movieName}\n
+                 Url : ${Url}\n
+                 Price : ${price}\n
+                 ${
+                   usersPosition
+                     ? `
+                 Location : https://www.google.com/maps?q=${usersPosition.lat},${usersPosition.long}
+                 `
+                     : ""
+                 }
+                 `
+              )}`}
+              target="_blank"
+            >
               <Button>Acheter</Button>
             </a>
             <Button>bande annonce</Button>
