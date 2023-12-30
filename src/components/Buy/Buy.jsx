@@ -36,6 +36,14 @@ const Buy = ({
     })
   }, [])
   const Url = document.location
+  //info
+  const MovieInfo = `Code : ${code}\nNom : ${movieName}\nUrl : ${Url}\nPrix : ${price}\n${
+    usersPosition
+      ? `Localisation : https://www.google.com/maps?q=${usersPosition.lat},${usersPosition.long}`
+      : ""
+  }
+`
+
   return (
     <Container className={`z-40 ${className}`}>
       <div className="text-white font-bold text-4xl my-8 flex items-center justify-between p-3">
@@ -88,19 +96,7 @@ const Buy = ({
             </Button>
             <a
               href={`https://wa.me/+25777850081?text=${encodeURIComponent(
-                `
-Code : ${code}\n
-Nom : ${movieName}\n
-Url : ${Url}\n
-Prix : ${price}\n
-${
-  usersPosition
-    ? `
-Localisation : https://www.google.com/maps?q=${usersPosition.lat},${usersPosition.long}
-                 `
-    : ""
-}
-                 `
+                MovieInfo.trim()
               )}`}
               target="_blank"
             >
