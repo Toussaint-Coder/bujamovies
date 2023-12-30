@@ -102,7 +102,7 @@ const Buy = ({
             >
               <Button>Acheter</Button>
             </a>
-            <Button>bande annonce</Button>
+            <Button className="text-sm">bande annonce</Button>
           </div>
         </div>
       </div>
