@@ -89,17 +89,17 @@ const Buy = ({
             <a
               href={`https://wa.me/+25777850081?text=${encodeURIComponent(
                 `
-                 Code : ${code}\n
-                 Nom : ${movieName}\n
-                 Url : ${Url}\n
-                 Price : ${price}\n
-                 ${
-                   usersPosition
-                     ? `
-                 Location : https://www.google.com/maps?q=${usersPosition.lat},${usersPosition.long}
+Code : ${code}\n
+Nom : ${movieName}\n
+Url : ${Url}\n
+Prix : ${price}\n
+${
+  usersPosition
+    ? `
+Localisation : https://www.google.com/maps?q=${usersPosition.lat},${usersPosition.long}
                  `
-                     : ""
-                 }
+    : ""
+}
                  `
               )}`}
               target="_blank"
