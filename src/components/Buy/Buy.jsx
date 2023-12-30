@@ -92,7 +92,7 @@ const Buy = ({
           </div>
           <div className="flex items-stretch gap-2">
             <Button>
-              <img src={bookMark} alt="Icon" className="w-5" />
+              <img src={bookMark} alt="Icon" className="w-4" />
             </Button>
             <a
               href={`https://wa.me/+25777850081?text=${encodeURIComponent(
