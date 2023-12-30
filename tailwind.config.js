@@ -11,6 +11,13 @@ export default {
       borderRadius: {
         normal: "0.5rem",
       },
+      screens: {
+        xs: "480px",
+        sm: "576px",
+        md: "768px",
+        lg: "992px",
+        xl: "1200px",
+      },
     },
   },
   plugins: [],
