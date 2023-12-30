@@ -90,7 +90,7 @@ const Buy = ({
               </li>
             </ul>
           </div>
-          <div className="flex flex-baseline gap-2">
+          <div className="flex gap-2">
             <Button>
               <img src={bookMark} alt="Icon" className="w-5" />
             </Button>
