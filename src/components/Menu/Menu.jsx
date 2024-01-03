@@ -3,7 +3,7 @@ import Container from "../reUsables/Container"
 import Logo from "../../assets/bujamovies.png"
 import bookMark from "../../assets/bookmark.svg"
 import Search from "../../assets/search.svg"
-import {Outlet} from "react-router-dom"
+import {Link, Outlet} from "react-router-dom"
 import SearchCard from "../reUsables/searchCard"
 import FilmsData from "../Movies/agasobanuye/Films"
 import Series from "../Movies/agasobanuye/series"
@@ -14,6 +14,19 @@ const Menu = () => {
   const [query, setQuery] = useState(null)
   const [type, setType] = useState(null)
   const [searchResult, setSearchResult] = useState([])
+  const [len, setLen] = useState(0)
+
+  useEffect(() => {
+    const update = setInterval(() => {
+      const handlerLen = JSON.parse(localStorage.getItem("BookMarks"))
+      if (handlerLen) {
+        setLen(handlerLen.length)
+      }
+    }, 0)
+    return () => {
+      clearInterval(update)
+    }
+  }, [len])
 
   //search algorithm
   useEffect(() => {
@@ -61,9 +74,11 @@ const Menu = () => {
   }, [query, type])
   return (
     <Container>
-      <div className="w-full bg-secondary flex relative justify-between p-2 rounded-normal items-center border border-white/15">
+      <div className="w-full bg-secondary flex sticky top-0 z-30 justify-between p-2 rounded-normal items-center border border-white/15">
         <div className="flex items-center gap-1">
-          <img src={Logo} alt="Icon" className="w-24" />
+          <Link to="/">
+            <img src={Logo} alt="Icon" className="w-24" />
+          </Link>
         </div>
         <div className="flex items-center gap-1 max-w-64 w-full border border-white/15 px-2 py-1 rounded-lg">
           <img src={Search} alt="Icon" className="w-3" />
@@ -109,12 +124,14 @@ const Menu = () => {
           )}
         </div>
         <div className="relative cursor-pointer md:block sm:hidden">
-          <div className="w-8 h-8 rounded-full border-white/15 overflow-hidden font-bold">
-            <div className="text-white bg-assets rounded-full absolute px-[0.3rem] py-[0.1rem] text-xs ">
-              0
+          <Link to="/Cart">
+            <div className="w-8 h-8 rounded-full border-white/15 overflow-hidden font-bold">
+              <div className="text-white bg-assets rounded-full absolute px-[0.3rem] py-[0.1rem] text-xs ">
+                {len}
+              </div>
+              <img src={bookMark} alt="Icon" className="w-full h-full" />
             </div>
-            <img src={bookMark} alt="Icon" className="w-full h-full" />
-          </div>
+          </Link>
         </div>
       </div>
       <Outlet />

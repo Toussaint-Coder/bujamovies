@@ -6,10 +6,11 @@ import rwandaFlag from "../../assets/rwanda.svg"
 import Button from "../reUsables/Button"
 import Tittle from "../Title/Title"
 import Movies from "../Movies/French/SeriesSection"
+import toast, {Toaster} from "react-hot-toast"
 import Footer from "../Footer/Footer"
-import {useParams} from "react-router-dom"
+import {json, useParams} from "react-router-dom"
 import Menu from "../Menu/Menu"
-import bookMark from "../../assets/bookmark.svg"
+import {data} from "autoprefixer"
 
 const Buy = ({
   className,
@@ -24,6 +25,8 @@ const Buy = ({
   Categorie,
 }) => {
   const [usersPosition, setUsersPosition] = useState(null)
+  const [isBookMarked, setIsBookMarked] = useState()
+  let [added, setAdded] = useState(false)
   window.scrollTo(0, 0)
   useEffect(() => {
     navigator.geolocation.getCurrentPosition((Position) => {
@@ -43,9 +46,38 @@ const Buy = ({
       : ""
   }
 `
+  let Data = JSON.parse(localStorage.getItem("BookMarks")) || []
+  useEffect(() => {
+    const checkIsBookMarked = Data.some((movie) => movie.MovieCode === code)
+    setIsBookMarked(checkIsBookMarked)
+  }, [Data, code])
+
+  const handlerBookMark = () => {
+    const CheckisExist = Data.some((movie) => movie.MovieCode === code)
+    if (!CheckisExist) {
+      Data.push({
+        Name: movieName,
+        MovieCover: cover,
+        MovieCode: code,
+        MovieUrl: Url,
+        MovieCategorie: Categorie,
+      })
+      localStorage.setItem("BookMarks", JSON.stringify(Data))
+      setAdded(true)
+
+      toast.success("ajouté à votre panier!", {
+        position: "bottom-center",
+        style: {
+          background: "",
+        },
+      })
+    }
+    setAdded(false)
+  }
 
   return (
     <Container className={`z-40`}>
+      {added && <Toaster />}
       <div className="text-white font-bold text-4xl my-8 flex items-center justify-between p-3 flex-col">
         <h1>{movieName}</h1>
       </div>
@@ -88,9 +120,9 @@ const Buy = ({
               </li>
             </ul>
           </div>
-          <div className="flex items-stretch gap-2">
-            <Button>
-              <img src={bookMark} alt="Icon" className="w-4" />
+          <div className="flex items-stretch gap-2 mt-4">
+            <Button onClick={handlerBookMark}>
+              {isBookMarked ? "retirer du" : "ajouter au"} panier
             </Button>
             <a
               href={`https://wa.me/+25777850081?text=${encodeURIComponent(

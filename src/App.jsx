@@ -9,6 +9,7 @@ import Footer from "./components/Footer/Footer"
 import BuyAgSerie from "./components/Movies/agasobanuye/BuyAg/BuyAgSerie"
 import BuyFrenchFilm from "./components/Movies/French/BuyFrench/BuyFrenchFilm"
 import BuyFrenchSerie from "./components/Movies/French/BuyFrench/BuyFrenchSerie"
+import Cart from "./components/Cart/Cart"
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Routes>
           <Route element={<Menu />}>
             <Route path="/" element={<Home />} />
+            <Route path="/Cart" element={<Cart />} />
             <Route path="/Buy_agasobanuye_films/:code" element={<BuyAg />} />
             <Route
               path="/Buy_agasobanuye_series/:code"

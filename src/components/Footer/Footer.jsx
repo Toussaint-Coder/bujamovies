@@ -14,7 +14,7 @@ const Footer = () => {
             <div className="text-white font-bold">
               <p>En savoir Plus</p>
             </div>
-            <ul className="space-y-4 text-xs text-white/50 ml-2">
+            <ul className="space-y-4 text-xs text-white/50">
               <li>(+257) 77 850 081</li>
               <li>bujamovies@gmail.com</li>
             </ul>
@@ -26,7 +26,7 @@ const Footer = () => {
             <div className="text-white font-bold">
               <p>Autres Pages</p>
             </div>
-            <ul className="space-y-4 text-xs text-white/50 ml-2">
+            <ul className="space-y-4 text-xs text-white/50">
               <li>A propos</li>
               <li>Aide</li>
               <li>Accueil</li>
