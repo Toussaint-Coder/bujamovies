@@ -59,7 +59,7 @@ const Buy = ({
         Name: movieName,
         MovieCover: cover,
         MovieCode: code,
-        MovieUrl: Url,
+        MovieUrl: Url.pathname,
         MovieCategorie: Categorie,
       })
       localStorage.setItem("BookMarks", JSON.stringify(Data))
