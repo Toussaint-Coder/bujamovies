@@ -34,7 +34,7 @@ const Menu = () => {
             if (Movie.Tittle.toLowerCase().indexOf(query.toLowerCase()) > -1) {
               searchData.push(Movie)
               setSearchResult(searchData)
-            } 
+            }
           })
           break
         case "Film-Francais":
@@ -42,7 +42,7 @@ const Menu = () => {
             if (Movie.Tittle.toLowerCase().indexOf(query.toLowerCase()) > -1) {
               searchData.push(Movie)
               setSearchResult(searchData)
-            } 
+            }
           })
           break
         case "Serie-Francais":
@@ -50,7 +50,7 @@ const Menu = () => {
             if (Movie.Tittle.toLowerCase().indexOf(query.toLowerCase()) > -1) {
               searchData.push(Movie)
               setSearchResult(searchData)
-            } 
+            }
           })
           break
         default:

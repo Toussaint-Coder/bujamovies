@@ -49,11 +49,11 @@ const Buy = ({
       <div className="text-white font-bold text-4xl my-8 flex items-center justify-between p-3 flex-col">
         <h1>{movieName}</h1>
       </div>
-      <div className="flex items-start gap-8 leading-6   lg:flex-row sm:flex-wrap">
-        <div className="basis-1/3 max-h-96 overflow-hidden rounded-normal">
-          <img src={cover} alt="cover" className="h-full w-full " />
+      <div className="flex items-start gap-8 leading-6">
+        <div className="max-h-96 overflow-hidden rounded-normal max-w-sm w-full sm:flex-col">
+          <img src={cover} alt="cover" className="h-full w-full" />
         </div>
-        <div className="basis-2/3">
+        <div className="">
           <div className="text-white">
             <div className="text-white font-bold text-xl">
               <h1>Histoire</h1>

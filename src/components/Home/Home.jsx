@@ -11,8 +11,8 @@ import Footer from "../Footer/Footer"
 const Home = () => {
   return (
     <>
-      <Slider />
       <Categories />
+      <Slider />
       <Tittle>Series Francais</Tittle>
       <Movies />
       <Tittle>Films Francais</Tittle>
