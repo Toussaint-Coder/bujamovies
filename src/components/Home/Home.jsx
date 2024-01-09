@@ -11,6 +11,7 @@ const Home = () => {
     <>
       <Categories />
       <Slider />
+      <div className="h-10"></div>
       <Tittle>Series Francais</Tittle>
       <Movies />
       <Tittle>Films Francais</Tittle>
@@ -19,6 +20,7 @@ const Home = () => {
       <FilmsSectionAg />
       <Tittle>Series Agasobanuye</Tittle>
       <SerieSectionAg />
+      <div className="h-10"></div>
     </>
   );
 };
