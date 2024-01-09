@@ -3,7 +3,6 @@ import Menu from "./components/Menu/Menu";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./components/Home/Home";
 import BuyAg from "./components/Movies/agasobanuye/BuyAg/BuyAgFIlm";
-import Footer from "./components/Footer/Footer";
 import BuyAgSerie from "./components/Movies/agasobanuye/BuyAg/BuyAgSerie";
 import BuyFrenchFilm from "./components/Movies/French/BuyFrench/BuyFrenchFilm";
 import BuyFrenchSerie from "./components/Movies/French/BuyFrench/BuyFrenchSerie";
@@ -30,7 +29,7 @@ function App() {
           </Route>
         </Routes>
       </BrowserRouter>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }

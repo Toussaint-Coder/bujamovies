@@ -6,7 +6,7 @@ const Slider = () => {
   return (
     <>
       <Container>
-        <div className="w-full min-h-[450px] rounded-normal bg-gradient px-16 py-8 flex items-center">
+        <div className="w-full min-h-[526px] rounded-normal bg-gradient px-16 py-8 flex items-center">
           <div className="max-w-[500px] w-full space-y-8">
             <div>
               <h1 className="font-bold text-4xl text-white">

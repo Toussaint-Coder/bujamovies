@@ -5,13 +5,13 @@ import Movies from "../Movies/French/SeriesSection";
 import FilmsSection from "../Movies/French/FilmsSection";
 import FilmsSectionAg from "../Movies/agasobanuye/FilmsSection";
 import SerieSectionAg from "../Movies/agasobanuye/seriesSection";
+import Footer from "../Footer/Footer";
 
 const Home = () => {
   return (
     <>
       <Categories />
       <Slider />
-      <div className="h-10"></div>
       <Tittle>Series Francais</Tittle>
       <Movies />
       <Tittle>Films Francais</Tittle>
@@ -21,6 +21,7 @@ const Home = () => {
       <Tittle>Series Agasobanuye</Tittle>
       <SerieSectionAg />
       <div className="h-10"></div>
+      <Footer />
     </>
   );
 };
