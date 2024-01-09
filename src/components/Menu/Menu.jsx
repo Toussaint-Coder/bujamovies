@@ -1,80 +1,80 @@
-import React, {useEffect, useState} from "react"
-import Container from "../reUsables/Container"
-import Logo from "../../assets/bujamovies.png"
-import bookMark from "../../assets/bookmark.svg"
-import Search from "../../assets/search.svg"
-import {Link, Outlet} from "react-router-dom"
-import SearchCard from "../reUsables/searchCard"
-import FilmsData from "../Movies/agasobanuye/Films"
-import Series from "../Movies/agasobanuye/series"
-import FilmsDataFr from "../Movies/French/Films"
-import MoviesData from "../Movies/French/Series"
+import { useEffect, useState } from "react";
+import Container from "../reUsables/Container";
+import Logo from "../../assets/bujamovies.png";
+import bookMark from "../../assets/bookmark.svg";
+import Search from "../../assets/search.svg";
+import { Link, Outlet } from "react-router-dom";
+import SearchCard from "../reUsables/searchCard";
+import FilmsData from "../Movies/agasobanuye/Films";
+import Series from "../Movies/agasobanuye/series";
+import FilmsDataFr from "../Movies/French/Films";
+import MoviesData from "../Movies/French/Series";
 
 const Menu = () => {
-  const [query, setQuery] = useState(null)
-  const [type, setType] = useState(null)
-  const [searchResult, setSearchResult] = useState([])
-  const [len, setLen] = useState(0)
+  const [query, setQuery] = useState(null);
+  const [type, setType] = useState(null);
+  const [searchResult, setSearchResult] = useState([]);
+  const [len, setLen] = useState(0);
 
   useEffect(() => {
     const update = setInterval(() => {
-      const handlerLen = JSON.parse(localStorage.getItem("BookMarks"))
+      const handlerLen = JSON.parse(localStorage.getItem("BookMarks"));
       if (handlerLen) {
-        setLen(handlerLen.length)
+        setLen(handlerLen.length);
       }
-    }, 0)
+    }, 0);
     return () => {
-      clearInterval(update)
-    }
-  }, [len])
+      clearInterval(update);
+    };
+  }, [len]);
 
   //search algorithm
   useEffect(() => {
-    let searchData = []
+    let searchData = [];
 
     if (query && type) {
       switch (type) {
         case "FIlm-agasobanuye":
-          FilmsData.forEach((Movie) => {
+          FilmsData.forEach(Movie => {
             if (Movie.Tittle.toLowerCase().indexOf(query.toLowerCase()) > -1) {
-              searchData.push(Movie)
-              setSearchResult(searchData)
+              searchData.push(Movie);
+              setSearchResult(searchData);
             }
-          })
-          break
+          });
+          break;
         case "Serie-agasobanuye":
-          Series.forEach((Movie) => {
+          Series.forEach(Movie => {
             if (Movie.Tittle.toLowerCase().indexOf(query.toLowerCase()) > -1) {
-              searchData.push(Movie)
-              setSearchResult(searchData)
+              searchData.push(Movie);
+              setSearchResult(searchData);
             }
-          })
-          break
+          });
+          break;
         case "Film-Francais":
-          FilmsDataFr.forEach((Movie) => {
+          FilmsDataFr.forEach(Movie => {
             if (Movie.Tittle.toLowerCase().indexOf(query.toLowerCase()) > -1) {
-              searchData.push(Movie)
-              setSearchResult(searchData)
+              searchData.push(Movie);
+              setSearchResult(searchData);
             }
-          })
-          break
+          });
+          break;
         case "Serie-Francais":
-          MoviesData.forEach((Movie) => {
+          MoviesData.forEach(Movie => {
             if (Movie.Tittle.toLowerCase().indexOf(query.toLowerCase()) > -1) {
-              searchData.push(Movie)
-              setSearchResult(searchData)
+              searchData.push(Movie);
+              setSearchResult(searchData);
             }
-          })
-          break
+          });
+          break;
         default:
-          setSearchResult([])
-          break
+          setSearchResult([]);
+          break;
       }
     }
-  }, [query, type])
+  }, [query, type]);
   return (
     <Container>
-      <div className="w-full bg-secondary flex sticky top-0 z-30 justify-between p-2 rounded-normal items-center border border-white/15">
+      <div className="w-full bg-secondary flex sticky top-0 z-30 justify-between px-4 py-2 rounded-normal items-center border border-white/15">
         <div className="flex items-center gap-1">
           <Link to="/">
             <img src={Logo} alt="Icon" className="w-24" />
@@ -86,12 +86,12 @@ const Menu = () => {
             type="text"
             className="bg-primary/15 w-full text-xs text-white outline-none"
             placeholder="chercher un film..."
-            onChange={(e) => setQuery(e.target.value)}
+            onChange={e => setQuery(e.target.value)}
           />
           <div className="max-w-20 w-full">
             <select
               className="bg-secondary w-full text-xs text-white outline-none space-y-2 cursor-pointer"
-              onChange={(e) => setType(e.target.value)}
+              onChange={e => setType(e.target.value)}
             >
               <option value="">Trié par</option>
               <option value="Film-Francais">Film Francais</option>
@@ -105,10 +105,10 @@ const Menu = () => {
             <div className="absolute bg-secondary border border-white/15 rounded-normal top-12 p-3 max-w-96 w-full space-y-2 z-30">
               {searchResult.length === 0 && (
                 <p className="text-assets">
-                  Pas de resultat a votre recherche '{query}'
+                  Pas de resultat a votre recherche &apos;{query}&apos;
                 </p>
               )}
-              {searchResult.map((Movie) => (
+              {searchResult.map(Movie => (
                 <SearchCard
                   key={Math.random().toString()}
                   code={Movie.Code}
@@ -136,6 +136,6 @@ const Menu = () => {
       </div>
       <Outlet />
     </Container>
-  )
-}
-export default Menu
+  );
+};
+export default Menu;
