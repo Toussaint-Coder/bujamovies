@@ -74,23 +74,23 @@ const Menu = () => {
   }, [query, type]);
   return (
     <Container>
-      <div className="w-full bg-secondary flex sticky top-0 z-30 justify-between px-4 py-2 rounded-normal items-center border border-white/15">
-        <div className="flex items-center gap-1">
+      <div className="w-full bg-secondary flex sticky top-0 z-30 justify-between p-3 rounded-normal items-center border border-white/15">
+        <div className="flex items-center">
           <Link to="/">
             <img src={Logo} alt="Icon" className="w-24" />
           </Link>
         </div>
-        <div className="flex items-center gap-1 max-w-64 w-full border border-white/15 px-2 py-1 rounded-lg">
+        <div className="flex items-center gap-2 max-w-96 w-full border border-white/15 px-2 py-1 rounded-lg">
           <img src={Search} alt="Icon" className="w-3" />
           <input
             type="text"
-            className="bg-primary/15 w-full text-xs text-white outline-none"
+            className="bg-primary/15 w-full text-sm text-white outline-none"
             placeholder="chercher un film..."
             onChange={e => setQuery(e.target.value)}
           />
           <div className="max-w-20 w-full">
             <select
-              className="bg-secondary w-full text-xs text-white outline-none space-y-2 cursor-pointer"
+              className="bg-secondary w-full text-sm text-white outline-none space-y-2 cursor-pointer"
               onChange={e => setType(e.target.value)}
             >
               <option value="">Trié par</option>
@@ -104,7 +104,7 @@ const Menu = () => {
           {query && type ? (
             <div className="absolute bg-secondary border border-white/15 rounded-normal top-12 p-3 max-w-96 w-full space-y-2 z-30">
               {searchResult.length === 0 && (
-                <p className="text-assets">
+                <p className="text-assets/90">
                   Pas de resultat a votre recherche &apos;{query}&apos;
                 </p>
               )}

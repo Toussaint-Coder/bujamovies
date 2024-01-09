@@ -1,12 +1,10 @@
-import React from "react"
-import Slider from "../slider/Slider"
-import Categories from "../Categories/Categoties"
-import Tittle from "../Title/Title"
-import Movies from "../Movies/French/SeriesSection"
-import FilmsSection from "../Movies/French/FilmsSection"
-import FilmsSectionAg from "../Movies/agasobanuye/FilmsSection"
-import SerieSectionAg from "../Movies/agasobanuye/seriesSection"
-import Footer from "../Footer/Footer"
+import Slider from "../slider/Slider";
+import Categories from "../Categories/Categoties";
+import Tittle from "../Title/Title";
+import Movies from "../Movies/French/SeriesSection";
+import FilmsSection from "../Movies/French/FilmsSection";
+import FilmsSectionAg from "../Movies/agasobanuye/FilmsSection";
+import SerieSectionAg from "../Movies/agasobanuye/seriesSection";
 
 const Home = () => {
   return (
@@ -22,6 +20,6 @@ const Home = () => {
       <Tittle>Series Agasobanuye</Tittle>
       <SerieSectionAg />
     </>
-  )
-}
-export default Home
+  );
+};
+export default Home;
