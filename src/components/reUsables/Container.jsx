@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 
 const Container = ({ children, className }) => {
   return (
@@ -5,6 +6,10 @@ const Container = ({ children, className }) => {
   );
 };
 
-}
+// Props validation
+Container.propTypes = {
+  children: PropTypes.node,
+  className: PropTypes.string,
+};
 
 export default Container;
