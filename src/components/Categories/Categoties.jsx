@@ -14,7 +14,7 @@ const Categories = () => {
               !GetPage ? "bg-assets" : ""
             }`}
           >
-            accueil
+            Accueil
           </li>
           <li className="w-full py-4 font-semibold border-r-2 border-white/15 text-white text-center">
             Films
