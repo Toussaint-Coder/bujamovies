@@ -40,7 +40,7 @@ const Cart = () => {
                 )}
                 <p>{Movie.Name}</p>
               </div>
-              <div className="flex items-center gap-1 justify-center">
+              <div className="flex items-center gap-1 justify-center flex-wrap">
                 <Link to={`${Movie.MovieUrl}`}>
                   <Button>Acheter</Button>
                 </Link>

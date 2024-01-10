@@ -18,7 +18,7 @@ const FilmsSectionAg = () => {
               <img src={rwandaFlag} alt="Icon" className="w-4" />
               <p className="text-lg font-semibold">{Movie.Tittle}</p>
             </div>
-            <div className="flex items-center gap-4 justify-center mb-2">
+            <div className="flex items-center gap-4 justify-center flex-wrap mb-2">
               <Link to={`/Buy_agasobanuye_films/${Movie.Code}`}>
                 <Button>Acheter</Button>
               </Link>

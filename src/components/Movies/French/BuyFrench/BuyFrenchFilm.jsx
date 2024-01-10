@@ -1,11 +1,10 @@
-import React, {useState} from "react"
-import Buy from "../../../Buy/Buy"
-import FilmsData from "../Films"
-import {useParams} from "react-router-dom"
+import Buy from "../../../Buy/Buy";
+import FilmsData from "../Films";
+import { useParams } from "react-router-dom";
 
 const BuyFrenchFilm = () => {
-  const {code} = useParams()
-  const selectMovie = FilmsData.find((film) => film.Code === parseInt(code, 10))
+  const { code } = useParams();
+  const selectMovie = FilmsData.find(film => film.Code === parseInt(code, 10));
 
   return (
     <div>
@@ -20,6 +19,6 @@ const BuyFrenchFilm = () => {
         Categorie={selectMovie.Categorie}
       />
     </div>
-  )
-}
-export default BuyFrenchFilm
+  );
+};
+export default BuyFrenchFilm;

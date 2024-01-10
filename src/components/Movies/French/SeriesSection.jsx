@@ -18,7 +18,7 @@ const Movies = () => {
               <img src={FrenchFlag} alt="Icon" className="w-4" />
               <p className="text-lg font-semibold">{Movie.Tittle}</p>
             </div>
-            <div className="flex items-center gap-4 justify-center mb-2">
+            <div className="flex items-center gap-4 flex-wrap justify-center mb-2">
               <Link to={`/Buy_French_serie/${Movie.Code}`}>
                 <Button>Acheter</Button>
               </Link>

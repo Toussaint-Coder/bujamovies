@@ -1,16 +1,13 @@
-import React, {useEffect, useState} from "react"
-import home from "../../assets/close.svg"
-import Container from "../reUsables/Container"
-import frenchFlag from "../../assets/france.svg"
-import rwandaFlag from "../../assets/rwanda.svg"
-import Button from "../reUsables/Button"
-import Tittle from "../Title/Title"
-import Movies from "../Movies/French/SeriesSection"
-import toast, {Toaster} from "react-hot-toast"
-import Footer from "../Footer/Footer"
-import {json, useParams} from "react-router-dom"
-import Menu from "../Menu/Menu"
-import {data} from "autoprefixer"
+import { useEffect, useState } from "react";
+import toast, { Toaster } from "react-hot-toast";
+import PropTypes from "prop-types";
+
+import Container from "../reUsables/Container";
+import frenchFlag from "../../assets/france.svg";
+import rwandaFlag from "../../assets/rwanda.svg";
+import Button from "../reUsables/Button";
+import Tittle from "../Title/Title";
+import Movies from "../Movies/French/SeriesSection";
 
 const Buy = ({
   className,
@@ -24,36 +21,36 @@ const Buy = ({
   price,
   Categorie,
 }) => {
-  const [usersPosition, setUsersPosition] = useState(null)
-  const [isBookMarked, setIsBookMarked] = useState()
-  let [added, setAdded] = useState(false)
-  window.scrollTo(0, 0)
+  const [usersPosition, setUsersPosition] = useState(null);
+  const [isBookMarked, setIsBookMarked] = useState();
+  let [added, setAdded] = useState(false);
+  window.scrollTo(0, 0);
   useEffect(() => {
-    navigator.geolocation.getCurrentPosition((Position) => {
+    navigator.geolocation.getCurrentPosition(Position => {
       if (Position.coords) {
         setUsersPosition({
           lat: Position.coords.latitude,
           long: Position.coords.latitude,
-        })
+        });
       }
-    })
-  }, [])
-  const Url = document.location
+    });
+  }, []);
+  const Url = document.location;
   //info
   const MovieInfo = `Code : ${code}\nNom : ${movieName}\nUrl : ${Url}\nPrix : ${price}\n${
     usersPosition
       ? `Localisation : https://www.google.com/maps?q=${usersPosition.lat},${usersPosition.long}`
       : ""
   }
-`
-  let Data = JSON.parse(localStorage.getItem("BookMarks")) || []
+`;
+  let Data = JSON.parse(localStorage.getItem("BookMarks")) || [];
   useEffect(() => {
-    const checkIsBookMarked = Data.some((movie) => movie.MovieCode === code)
-    setIsBookMarked(checkIsBookMarked)
-  }, [Data, code])
+    const checkIsBookMarked = Data.some(movie => movie.MovieCode === code);
+    setIsBookMarked(checkIsBookMarked);
+  }, [Data, code]);
 
   const handlerBookMark = () => {
-    const CheckisExist = Data.some((movie) => movie.MovieCode === code)
+    const CheckisExist = Data.some(movie => movie.MovieCode === code);
     if (!CheckisExist) {
       Data.push({
         Name: movieName,
@@ -61,19 +58,19 @@ const Buy = ({
         MovieCode: code,
         MovieUrl: Url.pathname,
         MovieCategorie: Categorie,
-      })
-      localStorage.setItem("BookMarks", JSON.stringify(Data))
-      setAdded(true)
+      });
+      localStorage.setItem("BookMarks", JSON.stringify(Data));
+      setAdded(true);
 
       toast.success("ajouté à votre panier!", {
         position: "bottom-center",
         style: {
           background: "",
         },
-      })
+      });
     }
-    setAdded(false)
-  }
+    setAdded(false);
+  };
 
   return (
     <Container className={`z-40`}>
@@ -81,9 +78,9 @@ const Buy = ({
       <div className="text-white font-bold text-4xl my-8 flex items-center justify-between p-3 flex-col">
         <h1>{movieName}</h1>
       </div>
-      <div className="flex items-start gap-8 leading-6">
-        <div className="max-h-96 overflow-hidden rounded-normal max-w-sm w-full sm:flex-col">
-          <img src={cover} alt="cover" className="h-full w-full" />
+      <div className="flex items-start gap-8 max-lg:flex-col leading-6">
+        <div className="lg:max-h-96 h-[500px] overflow-hidden rounded-normal lg:max-w-sm w-full sm:flex-col">
+          <img src={cover} alt="cover" className="object-cover w-full" />
         </div>
         <div className="">
           <div className="text-white">
@@ -95,7 +92,7 @@ const Buy = ({
                 description
               ) : (
                 <span className="text-assets">
-                  L'histoire n'est pas disponible
+                  L&apos;histoire n&apos;est pas disponible
                 </span>
               )}
             </p>
@@ -129,6 +126,7 @@ const Buy = ({
                 MovieInfo.trim()
               )}`}
               target="_blank"
+              rel="noreferrer"
             >
               <Button>Acheter</Button>
             </a>
@@ -140,6 +138,21 @@ const Buy = ({
       <Movies />
       <br />
     </Container>
-  )
-}
-export default Buy
+  );
+};
+
+// Props Validation
+Buy.propTypes = {
+  className: PropTypes.string,
+  movieName: PropTypes.string,
+  cover: PropTypes.string,
+  description: PropTypes.string,
+  code: PropTypes.string,
+  size: PropTypes.string,
+  type: PropTypes.string,
+  saison: PropTypes.string,
+  price: PropTypes.string,
+  Categorie: PropTypes.string,
+};
+
+export default Buy;

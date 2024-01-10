@@ -74,13 +74,13 @@ const Menu = () => {
   }, [query, type]);
   return (
     <Container>
-      <div className="w-full bg-secondary flex sticky top-0 z-30 justify-between p-3 rounded-normal items-center border border-white/15">
+      <div className="w-full bg-secondary flex sticky top-0 z-30 justify-between gap-2 p-3 rounded-normal items-center border border-white/15">
         <div className="flex items-center">
           <Link to="/">
             <img src={Logo} alt="Icon" className="w-24" />
           </Link>
         </div>
-        <div className="flex items-center gap-2 max-w-96 w-full border border-white/15 px-2 py-1 rounded-lg">
+        <div className="flex items-center gap-2 max-w-72 md:max-w-96 w-full border border-white/15 px-2 py-1 rounded-lg">
           <img src={Search} alt="Icon" className="w-3" />
           <input
             type="text"
