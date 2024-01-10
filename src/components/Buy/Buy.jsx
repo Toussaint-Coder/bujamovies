@@ -76,7 +76,7 @@ const Buy = ({
     <Container className={`z-40`}>
       {added && <Toaster />}
       <div className="text-white font-bold text-4xl my-8 flex items-center justify-between p-3 flex-col">
-        <h1>{movieName}</h1>
+        <h1 className="text-center">{movieName}</h1>
       </div>
       <div className="flex items-start gap-8 max-lg:flex-col leading-6">
         <div className="lg:max-h-96 h-[500px] overflow-hidden rounded-normal lg:max-w-sm w-full sm:flex-col">
@@ -117,7 +117,7 @@ const Buy = ({
               </li>
             </ul>
           </div>
-          <div className="flex items-stretch gap-2 mt-4">
+          <div className="flex items-stretch gap-2 mt-4 flex-wrap">
             <Button onClick={handlerBookMark}>
               {isBookMarked ? "retirer du" : "ajouter au"} panier
             </Button>
