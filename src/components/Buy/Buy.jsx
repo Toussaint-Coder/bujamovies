@@ -117,7 +117,7 @@ const Buy = ({
               </li>
             </ul>
           </div>
-          <div className="flex items-stretch gap-2 mt-4">
+          <div className="flex items-stretch gap-2 mt-4 flex-wrap">
             <Button onClick={handlerBookMark}>
               {isBookMarked ? "retirer du" : "ajouter au"} panier
             </Button>

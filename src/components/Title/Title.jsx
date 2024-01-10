@@ -1,11 +1,17 @@
-import React from "react"
-import Container from "../reUsables/Container"
+import PropTypes from "prop-types";
+import Container from "../reUsables/Container";
 
-const Tittle = ({children}) => {
+const Tittle = ({ children }) => {
   return (
     <Container>
       <div className="font-bold text-white text-lg">{children}</div>
     </Container>
-  )
-}
-export default Tittle
+  );
+};
+
+// Props Validation
+Tittle.propTypes = {
+  children: PropTypes.string,
+};
+
+export default Tittle;
